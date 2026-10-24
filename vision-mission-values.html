@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Vision, mission and values page for ANGAU Memorial Provincial Hospital in Lae, Papua New Guinea. Statements are presented as a proposed framework pending official approval.">
+  <meta name="theme-color" content="#073b66">
+  <title>Vision, Mission and Values | ANGAU Memorial Provincial Hospital</title>
+  <style>
+    :root {
+      --navy: #073b66;
+      --blue: #0b6596;
+      --teal: #087f8c;
+      --ink: #172b3a;
+      --muted: #5b6b78;
+      --pale: #eef6fa;
+      --line: #d8e4eb;
+      --white: #fff;
+      --gold: #f0b84b;
+      --shadow: 0 12px 34px rgba(7, 59, 102, .11);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--ink); background: #f7fafc;
+      font-family: Inter, "Segoe UI", Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: var(--blue); }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+    .skip-link { position: absolute; left: -9999px; top: 8px; background: white; padding: 10px; z-index: 100; }
+    .skip-link:focus { left: 8px; }
+    .topbar { background: #052c4c; color: #eaf4fb; font-size: .86rem; }
+    .topbar-inner, .nav-inner, .container { width: min(1180px, calc(100% - 36px)); margin: auto; }
+    .topbar-inner { display: flex; justify-content: space-between; gap: 14px; padding: 8px 0; flex-wrap: wrap; }
+    .masthead { background: var(--white); border-bottom: 1px solid var(--line); }
+    .brand { display: flex; align-items: center; gap: 15px; padding: 18px 0; }
+    .emblem {
+      width: 60px; height: 60px; flex: 0 0 60px; border-radius: 16px;
+      display: grid; place-items: center; color: white; font-size: 1.55rem; font-weight: 800;
+      background: linear-gradient(145deg, var(--navy), var(--teal));
+      box-shadow: 0 6px 16px rgba(7,59,102,.18);
+    }
+    .brand h1 { margin: 0; color: var(--navy); font-size: clamp(1.15rem, 2.7vw, 1.8rem); letter-spacing: -.025em; line-height: 1.2; }
+    .brand p { margin: 5px 0 0; color: var(--muted); font-size: .93rem; }
+    .nav-wrap { background: var(--navy); }
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 4px; padding: 8px 0; }
+    .nav-links a { color: white; text-decoration: none; padding: 9px 12px; border-radius: 8px; font-size: .92rem; font-weight: 600; }
+    .nav-links a:hover { background: rgba(255,255,255,.13); }
+    .menu-toggle { display: none; background: transparent; color: white; border: 1px solid rgba(255,255,255,.5); border-radius: 8px; padding: 8px 12px; font: inherit; }
+    .hero {
+      position: relative; overflow: hidden; color: white;
+      background: radial-gradient(circle at 82% 18%, rgba(26,166,171,.4), transparent 30%),
+                  linear-gradient(120deg, #062e50 0%, #075783 58%, #087f8c 100%);
+    }
+    .hero::after { content: ""; position: absolute; width: 390px; height: 390px; right: -130px; bottom: -240px; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; box-shadow: 0 0 0 35px rgba(255,255,255,.035), 0 0 0 70px rgba(255,255,255,.025); }
+    .hero-inner { width: min(1180px, calc(100% - 36px)); margin: auto; padding: 64px 0 60px; position: relative; z-index: 1; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; font-weight: 800; color: #c8f2f0; }
+    .eyebrow::before { content: ""; width: 25px; height: 3px; border-radius: 3px; background: var(--gold); }
+    .hero h2 { max-width: 790px; font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.08; letter-spacing: -.04em; margin: 16px 0; }
+    .hero p { max-width: 690px; font-size: clamp(1rem, 1.7vw, 1.18rem); color: #e4f1f8; margin: 0 0 26px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; text-decoration: none; font-weight: 750; border-radius: 10px; padding: 12px 18px; min-height: 46px; }
+    .btn-primary { color: #083654; background: white; }
+    .btn-primary:hover { background: #edf7fa; }
+    .btn-outline { border: 1px solid rgba(255,255,255,.6); color: white; }
+    .btn-outline:hover { background: rgba(255,255,255,.1); }
+    .notice { margin-top: -20px; position: relative; z-index: 2; }
+    .notice-inner { background: white; border: 1px solid var(--line); box-shadow: var(--shadow); border-radius: 14px; padding: 17px 20px; display: flex; gap: 13px; align-items: flex-start; }
+    .notice-icon { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: #fff3d8; color: #805500; flex: 0 0 34px; font-weight: 900; }
+    .notice p { margin: 0; font-size: .94rem; }
+    .notice strong { color: var(--navy); }
+    main { padding: 42px 0 60px; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 18px; margin: 0 0 20px; }
+    .section-head h2 { color: var(--navy); font-size: clamp(1.55rem, 3vw, 2.1rem); line-height: 1.2; margin: 0; letter-spacing: -.025em; }
+    .section-head p { color: var(--muted); margin: 8px 0 0; max-width: 700px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    .card { background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: 23px; box-shadow: 0 5px 18px rgba(7,59,102,.04); }
+    .card-icon { width: 45px; height: 45px; border-radius: 13px; display: grid; place-items: center; background: var(--pale); color: var(--blue); font-size: 1.35rem; margin-bottom: 14px; }
+    .card h3 { margin: 0 0 8px; color: var(--navy); font-size: 1.1rem; }
+    .card p { margin: 0 0 13px; color: var(--muted); font-size: .94rem; }
+    .card a { text-decoration: none; font-weight: 750; font-size: .92rem; }
+    .card a:hover { text-decoration: underline; }
+    .split { display: grid; grid-template-columns: 1.1fr .9fr; gap: 22px; margin-top: 46px; }
+    .panel { background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+    .panel h2 { margin: 0 0 12px; color: var(--navy); font-size: 1.55rem; }
+    .panel p { color: var(--muted); margin: 0 0 12px; }
+    .fact-list { display: grid; gap: 12px; margin: 18px 0 0; }
+    .fact { display: flex; gap: 12px; align-items: flex-start; }
+    .fact b { display: block; color: var(--navy); }
+    .fact span { color: var(--muted); font-size: .94rem; }
+    .fact-mark { color: var(--teal); font-weight: 900; }
+    .service-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 0; list-style: none; margin: 18px 0 0; }
+    .service-list li { background: var(--pale); border-radius: 9px; padding: 10px 12px; font-size: .92rem; }
+    .service-list li::before { content: "✓"; color: var(--teal); font-weight: 900; margin-right: 8px; }
+    .resource-strip { margin-top: 24px; padding: 24px; background: #eaf4f8; border-radius: var(--radius); }
+    .resource-strip h2 { color: var(--navy); margin: 0 0 8px; font-size: 1.45rem; }
+    .resource-strip p { color: var(--muted); margin: 0 0 14px; }
+    .source-links { display: flex; flex-wrap: wrap; gap: 10px 18px; }
+    .source-links a { font-weight: 700; font-size: .92rem; }
+    footer { background: #052c4c; color: #e7f1f7; padding: 34px 0 18px; }
+    .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 28px; }
+    footer h2, footer h3 { margin: 0 0 10px; color: white; }
+    footer h2 { font-size: 1.2rem; }
+    footer h3 { font-size: 1rem; }
+    footer p, footer li { color: #c7d9e5; font-size: .91rem; }
+    footer p { margin: 0 0 10px; }
+    footer ul { padding-left: 18px; margin: 0; }
+    footer a { color: #d4f3f1; }
+    .copyright { border-top: 1px solid rgba(255,255,255,.17); margin-top: 26px; padding-top: 15px; color: #b8ccda; font-size: .83rem; }
+    .disclaimer { font-size: .82rem; color: #c1d4e0; margin-top: 10px; }
+    @media (max-width: 850px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .split { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 620px) {
+      .topbar-inner { display: block; }
+      .brand { align-items: flex-start; }
+      .emblem { width: 49px; height: 49px; flex-basis: 49px; border-radius: 12px; }
+      nav { display: block; padding: 9px 0; }
+      .menu-toggle { display: inline-block; }
+      .nav-links { display: none; flex-direction: column; padding: 8px 0 3px; }
+      .nav-links.open { display: flex; }
+      .nav-links a { display: block; }
+      .hero-inner { padding: 48px 0 48px; }
+      .grid { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .service-list { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .notice-inner { padding: 15px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <span>Lae, Morobe Province · Papua New Guinea</span>
+      <span>Public information website concept</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="masthead">
+      <div class="container brand">
+        <div class="emblem" aria-hidden="true">+</div>
+        <div>
+          <h1>ANGAU Memorial Provincial Hospital</h1>
+          <p>Quality healthcare information for Lae, Morobe and the Momase Region</p>
+        </div>
+      </div>
+    </div>
+    <div class="nav-wrap">
+      <nav class="nav-inner" aria-label="Main navigation">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-links">☰ Menu</button>
+        <div class="nav-links" id="primary-links">
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="about.html">About</a>
+          <a href="vision-mission-values.html" aria-current="page">Vision, Mission &amp; Values</a>
+          <a href="medical-services.html">Medical Services</a>
+          <a href="patient-information.html">Patient Information</a>
+          <a href="health-education.html">Health Education</a>
+          <a href="news.html">News & Updates</a>
+          <a href="careers.html">Careers</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-inner">
+      <div class="eyebrow">Vision, mission and values</div>
+      <h2 id="hero-title">A shared commitment to safer, respectful and equitable healthcare.</h2>
+      <p>This page sets out a proposed vision, mission and values framework for ANGAU Memorial Provincial Hospital. It is intended to communicate the principles that can guide patient care, teamwork, public service and continuous improvement.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#vision">Explore our framework <span aria-hidden="true">&nbsp;→</span></a>
+        <a class="btn btn-outline" href="about.html">About the Hospital</a>
+      </div>
+    </div>
+  </section>
+
+  <main id="main-content" class="container">
+    <section aria-labelledby="intro-title">
+      <div class="section-head">
+        <div>
+          <h2 id="intro-title">Our guiding principles</h2>
+          <p>ANGAU Memorial Provincial Hospital is a major public hospital in Lae, Morobe Province. A clear statement of purpose can help explain how the hospital aims to serve patients, families, staff and the wider community. The wording below is a proposed framework, not a verified quotation from an approved hospital strategy.</p>
+        </div>
+      </div>
+      <div class="notice" role="note" aria-label="Official approval notice" style="margin:0 0 24px">
+        <div class="notice-inner">
+          <div class="notice-icon" aria-hidden="true">!</div>
+          <p><strong>Approval notice:</strong> The vision, mission and values on this page are drafted for website planning. Hospital management should confirm or replace these statements with the officially adopted wording before publication as institutional policy.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="vision" class="split" aria-label="Vision and mission">
+      <article class="panel">
+        <div class="card-icon" aria-hidden="true">◎</div>
+        <h2>Proposed vision</h2>
+        <p><strong>To be a trusted regional referral hospital delivering safe, compassionate, equitable and high-quality healthcare for the people of Morobe and Papua New Guinea.</strong></p>
+        <p>This proposed vision emphasizes patient safety, respect, reliable services and the hospital’s regional role. The final wording should align with the hospital’s current strategic plan and the priorities of the responsible health authorities.</p>
+      </article>
+      <article class="panel">
+        <div class="card-icon" aria-hidden="true">✚</div>
+        <h2>Proposed mission</h2>
+        <p><strong>To provide and support accessible, evidence-informed healthcare through skilled and ethical staff, effective teamwork, responsible use of resources, partnerships and continuous improvement.</strong></p>
+        <p>The proposed mission links clinical care with workforce development, good governance, respectful communication and collaboration with patients, families, communities and health partners.</p>
+      </article>
+    </section>
+
+    <section style="margin-top:46px" aria-labelledby="values-title">
+      <div class="section-head">
+        <div>
+          <h2 id="values-title">Proposed organisational values</h2>
+          <p>These values describe practical behaviours that a hospital can encourage in everyday service delivery. They are recommendations for review, not a claim that these exact words have been formally adopted by ANGAU.</p>
+        </div>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">♡</div>
+          <h3>Compassion and respect</h3>
+          <p>Treat every patient and family member with dignity, kindness, cultural sensitivity and consideration, regardless of background or circumstances.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">✓</div>
+          <h3>Patient safety and quality</h3>
+          <p>Follow clinical standards, communicate risks, learn from incidents and work to improve the safety and quality of care.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">⚖</div>
+          <h3>Equity and fairness</h3>
+          <p>Support fair access to services and make decisions without discrimination, while prioritising care according to clinical need.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">◈</div>
+          <h3>Integrity and accountability</h3>
+          <p>Act honestly, protect confidential information, use public resources responsibly and take responsibility for professional decisions.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">♧</div>
+          <h3>Teamwork and partnership</h3>
+          <p>Work collaboratively across clinical and support teams and with patients, families, communities and health-sector partners.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">↗</div>
+          <h3>Learning and improvement</h3>
+          <p>Encourage professional development, evidence-informed practice, constructive feedback and practical improvements to service delivery.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="split" aria-label="Putting values into practice">
+      <div class="panel">
+        <h2>Putting the values into practice</h2>
+        <p>Values become meaningful when they guide observable actions. Subject to hospital policy and clinical requirements, the following behaviours can help translate the proposed framework into daily practice.</p>
+        <div class="fact-list">
+          <div class="fact"><span class="fact-mark" aria-hidden="true">●</span><div><b>For patients and families</b><span>Communicate clearly, explain next steps where possible, respect privacy and direct people to the appropriate clinical team.</span></div></div>
+          <div class="fact"><span class="fact-mark" aria-hidden="true">●</span><div><b>For staff</b><span>Support professional conduct, safe teamwork, appropriate escalation of concerns and ongoing learning.</span></div></div>
+          <div class="fact"><span class="fact-mark" aria-hidden="true">●</span><div><b>For leaders and administrators</b><span>Promote transparent processes, responsible resource management and improvement based on feedback and evidence.</span></div></div>
+          <div class="fact"><span class="fact-mark" aria-hidden="true">●</span><div><b>For partners and the community</b><span>Build respectful working relationships and share approved, accurate public information.</span></div></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>Alignment with public health priorities</h2>
+        <p>The proposed framework is consistent with broad healthcare principles commonly used in public health systems: quality and safety, people-centred care, fairness, accountability, workforce capability and continuous improvement.</p>
+        <p>These general principles should not be mistaken for a statement of ANGAU’s approved policy or strategic objectives. The hospital’s governing authority should identify the applicable Papua New Guinea health policies, provincial plans and institutional strategy when reviewing this page.</p>
+        <a class="btn btn-primary" style="background:var(--navy);color:#fff" href="policies-standards.html">Policies and Standards <span aria-hidden="true">&nbsp;→</span></a>
+      </div>
+    </section>
+
+    <section class="resource-strip" aria-labelledby="resources-title">
+      <h2 id="resources-title">Reference sources</h2>
+      <p>Public project and government resources provide background on ANGAU’s regional role and redevelopment. They do not establish that the proposed vision, mission and values above have been formally approved.</p>
+      <div class="source-links">
+        <a href="https://www.dfat.gov.au/about-us/business-opportunities/Pages/angau-hospital-project-delivery-office-papua-new-guinea" target="_blank" rel="noopener noreferrer">Australian Government DFAT: ANGAU Hospital Project ↗</a>
+        <a href="https://jid.global/projects/angau-memorial-hospital-redevelopment" target="_blank" rel="noopener noreferrer">ANGAU redevelopment project overview ↗</a>
+        <a href="https://www.treasury.gov.pg/wp-content/uploads/2024/12/Volume-3B-compressed-1.pdf" target="_blank" rel="noopener noreferrer">PNG Treasury: Public Investment Program ↗</a>
+        <a href="https://www.who.int/about/who-we-are/constitution" target="_blank" rel="noopener noreferrer">World Health Organization: Constitution and health principles ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h2>ANGAU Memorial Provincial Hospital</h2>
+          <p>Lae, Morobe Province<br>Papua New Guinea</p>
+          <p>Proposed vision, mission and values framework for review by hospital management.</p>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="about.html">About the Hospital</a></li>
+            <li><a href="medical-services.html">Medical Services</a></li>
+            <li><a href="patient-information.html">Patient Information</a></li>
+            <li><a href="health-education.html">Health Education</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Information</h3>
+          <ul>
+            <li><a href="news.html">News and Updates</a></li>
+            <li><a href="downloads.html">Forms and Documents</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <div>© <span id="year">2026</span> ANGAU Memorial Provincial Hospital website information. All rights reserved by the respective owners of names and marks.</div>
+        <p class="disclaimer">This is an independently prepared website template, not a representation that the site is operated or officially endorsed by the hospital. Confirm ownership, official branding, contact details, service availability and all public notices with hospital management before publishing. Navigation links to other proposed pages will work once those pages are created.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var toggle = document.querySelector('.menu-toggle');
+      var links = document.getElementById('primary-links');
+      if (toggle && links) {
+        toggle.addEventListener('click', function () {
+          var open = links.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', String(open));
+        });
+      }
+      var year = document.getElementById('year');
+      if (year) year.textContent = String(new Date().getFullYear());
+    }());
+  </script>
+</body>
+</html>
