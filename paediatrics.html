@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Proposed surgical services information page for ANGAU Memorial Provincial Hospital in Lae, Papua New Guinea.">
+  <meta name="theme-color" content="#073b66">
+  <title>Paediatrics and Child Health | ANGAU Memorial Provincial Hospital</title>
+  <style>
+    :root {
+      --navy: #073b66;
+      --blue: #0b6596;
+      --teal: #087f8c;
+      --ink: #172b3a;
+      --muted: #5b6b78;
+      --pale: #eef6fa;
+      --line: #d8e4eb;
+      --white: #fff;
+      --gold: #f0b84b;
+      --shadow: 0 12px 34px rgba(7, 59, 102, .11);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--ink); background: #f7fafc;
+      font-family: Inter, "Segoe UI", Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: var(--blue); }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+    .skip-link { position: absolute; left: -9999px; top: 8px; background: white; padding: 10px; z-index: 100; }
+    .skip-link:focus { left: 8px; }
+    .topbar { background: #052c4c; color: #eaf4fb; font-size: .86rem; }
+    .topbar-inner, .nav-inner, .container { width: min(1180px, calc(100% - 36px)); margin: auto; }
+    .topbar-inner { display: flex; justify-content: space-between; gap: 14px; padding: 8px 0; flex-wrap: wrap; }
+    .masthead { background: var(--white); border-bottom: 1px solid var(--line); }
+    .brand { display: flex; align-items: center; gap: 15px; padding: 18px 0; }
+    .emblem {
+      width: 60px; height: 60px; flex: 0 0 60px; border-radius: 16px;
+      display: grid; place-items: center; color: white; font-size: 1.55rem; font-weight: 800;
+      background: linear-gradient(145deg, var(--navy), var(--teal));
+      box-shadow: 0 6px 16px rgba(7,59,102,.18);
+    }
+    .brand h1 { margin: 0; color: var(--navy); font-size: clamp(1.15rem, 2.7vw, 1.8rem); letter-spacing: -.025em; line-height: 1.2; }
+    .brand p { margin: 5px 0 0; color: var(--muted); font-size: .93rem; }
+    .nav-wrap { background: var(--navy); }
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 4px; padding: 8px 0; }
+    .nav-links a { color: white; text-decoration: none; padding: 9px 12px; border-radius: 8px; font-size: .92rem; font-weight: 600; }
+    .nav-links a:hover { background: rgba(255,255,255,.13); }
+    .menu-toggle { display: none; background: transparent; color: white; border: 1px solid rgba(255,255,255,.5); border-radius: 8px; padding: 8px 12px; font: inherit; }
+    .hero {
+      position: relative; overflow: hidden; color: white;
+      background: radial-gradient(circle at 82% 18%, rgba(26,166,171,.4), transparent 30%),
+                  linear-gradient(120deg, #062e50 0%, #075783 58%, #087f8c 100%);
+    }
+    .hero::after { content: ""; position: absolute; width: 390px; height: 390px; right: -130px; bottom: -240px; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; box-shadow: 0 0 0 35px rgba(255,255,255,.035), 0 0 0 70px rgba(255,255,255,.025); }
+    .hero-inner { width: min(1180px, calc(100% - 36px)); margin: auto; padding: 64px 0 60px; position: relative; z-index: 1; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; font-weight: 800; color: #c8f2f0; }
+    .eyebrow::before { content: ""; width: 25px; height: 3px; border-radius: 3px; background: var(--gold); }
+    .hero h2 { max-width: 790px; font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.08; letter-spacing: -.04em; margin: 16px 0; }
+    .hero p { max-width: 690px; font-size: clamp(1rem, 1.7vw, 1.18rem); color: #e4f1f8; margin: 0 0 26px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; text-decoration: none; font-weight: 750; border-radius: 10px; padding: 12px 18px; min-height: 46px; }
+    .btn-primary { color: #083654; background: white; }
+    .btn-primary:hover { background: #edf7fa; }
+    .btn-outline { border: 1px solid rgba(255,255,255,.6); color: white; }
+    .btn-outline:hover { background: rgba(255,255,255,.1); }
+    .notice { margin-top: -20px; position: relative; z-index: 2; }
+    .notice-inner { background: white; border: 1px solid var(--line); box-shadow: var(--shadow); border-radius: 14px; padding: 17px 20px; display: flex; gap: 13px; align-items: flex-start; }
+    .notice-icon { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: #fff3d8; color: #805500; flex: 0 0 34px; font-weight: 900; }
+    .notice p { margin: 0; font-size: .94rem; }
+    .notice strong { color: var(--navy); }
+    main { padding: 42px 0 60px; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 18px; margin: 0 0 20px; }
+    .section-head h2 { color: var(--navy); font-size: clamp(1.55rem, 3vw, 2.1rem); line-height: 1.2; margin: 0; letter-spacing: -.025em; }
+    .section-head p { color: var(--muted); margin: 8px 0 0; max-width: 700px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    .card { background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: 23px; box-shadow: 0 5px 18px rgba(7,59,102,.04); }
+    .card-icon { width: 45px; height: 45px; border-radius: 13px; display: grid; place-items: center; background: var(--pale); color: var(--blue); font-size: 1.35rem; margin-bottom: 14px; }
+    .card h3 { margin: 0 0 8px; color: var(--navy); font-size: 1.1rem; }
+    .card p { margin: 0 0 13px; color: var(--muted); font-size: .94rem; }
+    .card a { text-decoration: none; font-weight: 750; font-size: .92rem; }
+    .card a:hover { text-decoration: underline; }
+    .split { display: grid; grid-template-columns: 1.1fr .9fr; gap: 22px; margin-top: 46px; }
+    .panel { background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+    .panel h2 { margin: 0 0 12px; color: var(--navy); font-size: 1.55rem; }
+    .panel p { color: var(--muted); margin: 0 0 12px; }
+    .fact-list { display: grid; gap: 12px; margin: 18px 0 0; }
+    .fact { display: flex; gap: 12px; align-items: flex-start; }
+    .fact b { display: block; color: var(--navy); }
+    .fact span { color: var(--muted); font-size: .94rem; }
+    .fact-mark { color: var(--teal); font-weight: 900; }
+    .service-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 0; list-style: none; margin: 18px 0 0; }
+    .service-list li { background: var(--pale); border-radius: 9px; padding: 10px 12px; font-size: .92rem; }
+    .service-list li::before { content: "✓"; color: var(--teal); font-weight: 900; margin-right: 8px; }
+    .resource-strip { margin-top: 24px; padding: 24px; background: #eaf4f8; border-radius: var(--radius); }
+    .resource-strip h2 { color: var(--navy); margin: 0 0 8px; font-size: 1.45rem; }
+    .resource-strip p { color: var(--muted); margin: 0 0 14px; }
+    .source-links { display: flex; flex-wrap: wrap; gap: 10px 18px; }
+    .source-links a { font-weight: 700; font-size: .92rem; }
+    footer { background: #052c4c; color: #e7f1f7; padding: 34px 0 18px; }
+    .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 28px; }
+    footer h2, footer h3 { margin: 0 0 10px; color: white; }
+    footer h2 { font-size: 1.2rem; }
+    footer h3 { font-size: 1rem; }
+    footer p, footer li { color: #c7d9e5; font-size: .91rem; }
+    footer p { margin: 0 0 10px; }
+    footer ul { padding-left: 18px; margin: 0; }
+    footer a { color: #d4f3f1; }
+    .copyright { border-top: 1px solid rgba(255,255,255,.17); margin-top: 26px; padding-top: 15px; color: #b8ccda; font-size: .83rem; }
+    .disclaimer { font-size: .82rem; color: #c1d4e0; margin-top: 10px; }
+    @media (max-width: 850px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .split { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 620px) {
+      .topbar-inner { display: block; }
+      .brand { align-items: flex-start; }
+      .emblem { width: 49px; height: 49px; flex-basis: 49px; border-radius: 12px; }
+      nav { display: block; padding: 9px 0; }
+      .menu-toggle { display: inline-block; }
+      .nav-links { display: none; flex-direction: column; padding: 8px 0 3px; }
+      .nav-links.open { display: flex; }
+      .nav-links a { display: block; }
+      .hero-inner { padding: 48px 0 48px; }
+      .grid { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .service-list { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .notice-inner { padding: 15px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <span>Lae, Morobe Province · Papua New Guinea</span>
+      <span>Public information website concept</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="masthead">
+      <div class="container brand">
+        <div class="emblem" aria-hidden="true">+</div>
+        <div>
+          <h1>ANGAU Memorial Provincial Hospital</h1>
+          <p>Quality healthcare information for Lae, Morobe and the Momase Region</p>
+        </div>
+      </div>
+    </div>
+    <div class="nav-wrap">
+      <nav class="nav-inner" aria-label="Main navigation">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-links">☰ Menu</button>
+        <div class="nav-links" id="primary-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="medical-services.html" aria-current="page">Medical Services</a>
+          <a href="patient-information.html">Patient Information</a>
+          <a href="health-education.html">Health Education</a>
+          <a href="news.html">News & Updates</a>
+          <a href="careers.html">Careers</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-inner">
+      <div class="eyebrow">Clinical services · Surgical Services</div>
+      <h2 id="hero-title">Surgical care, procedures and perioperative support.</h2>
+      <p>Find general information about surgical assessment, procedures, operating theatre care, recovery and related clinical services at ANGAU Memorial Provincial Hospital.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="medical-services.html">Medical Services <span aria-hidden="true">&nbsp;→</span></a>
+        <a class="btn btn-outline" href="appointments-referrals.html">Appointments &amp; Referrals</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container notice" role="note" aria-label="Important surgical services notice">
+    <div class="notice-inner">
+      <div class="notice-icon" aria-hidden="true">!</div>
+      <p><strong>Important:</strong> Surgical treatment is determined by qualified healthcare professionals following clinical assessment. Procedures, theatre schedules, referral requirements and preparation instructions should be confirmed through official hospital channels. This website does not provide diagnosis, treatment or emergency dispatch.</p>
+    </div>
+  </div>
+
+  <main id="main-content" class="container">
+    <section aria-labelledby="overview-title">
+      <div class="section-head">
+        <div>
+          <h2 id="overview-title">Surgical Services overview</h2>
+          <p>Surgical services may include assessment, operative procedures and perioperative care for patients referred or admitted for surgical management, subject to clinical need, specialist availability and hospital capacity.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">✚</div>
+          <h3>Surgical assessment</h3>
+          <p>Patients may undergo clinical assessment to determine whether surgical treatment, further investigation or another form of care is appropriate.</p>
+          <a href="appointments-referrals.html">Appointments &amp; referrals →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">▣</div>
+          <h3>Operating theatre care</h3>
+          <p>Patients requiring surgery may receive care through operating theatre and perioperative teams according to hospital procedures.</p>
+          <a href="medical-services.html">Clinical services →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">♡</div>
+          <h3>Perioperative support</h3>
+          <p>Surgical care can involve preparation before a procedure, monitoring during treatment and recovery support afterwards.</p>
+          <a href="anaesthesia-intensive-care.html">Anaesthesia &amp; intensive care →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">⌖</div>
+          <h3>Diagnostic investigations</h3>
+          <p>Laboratory tests and medical imaging may be used when clinically required to support assessment and treatment planning.</p>
+          <a href="medical-imaging.html">Medical imaging →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">▤</div>
+          <h3>Inpatient recovery</h3>
+          <p>Some surgical patients may require ward-based monitoring, treatment and recovery following a procedure.</p>
+          <a href="inpatient-services.html">Inpatient services →</a>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">✉</div>
+          <h3>Follow-up care</h3>
+          <p>After surgery, patients may receive follow-up instructions, review appointments, medication guidance or further referrals.</p>
+          <a href="admissions-discharge.html">Admissions &amp; discharge →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="split" aria-label="Surgical care pathway">
+      <div class="panel">
+        <h2>Typical surgical care pathway</h2>
+        <p>The exact pathway varies according to the patient's condition, procedure and clinical circumstances.</p>
+
+        <div class="fact-list">
+          <div class="fact">
+            <span class="fact-mark" aria-hidden="true">●</span>
+            <div><b>Referral or presentation</b><span>A patient may reach surgical services through referral, outpatient assessment, inpatient care or emergency presentation.</span></div>
+          </div>
+          <div class="fact">
+            <span class="fact-mark" aria-hidden="true">●</span>
+            <div><b>Clinical assessment</b><span>The surgical team assesses the patient's condition and determines the appropriate management plan.</span></div>
+          </div>
+          <div class="fact">
+            <span class="fact-mark" aria-hidden="true">●</span>
+            <div><b>Preparation and consent</b><span>Where appropriate, patients receive procedure-specific preparation and information from authorised clinical staff.</span></div>
+          </div>
+          <div class="fact">
+            <span class="fact-mark" aria-hidden="true">●</span>
+            <div><b>Procedure and recovery</b><span>Surgery and subsequent recovery are managed by the relevant clinical teams according to hospital protocols.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Related surgical support</h2>
+        <p>Surgical patients may interact with several hospital services depending on their clinical needs.</p>
+        <ul class="service-list">
+          <li>Anaesthesia services</li>
+          <li>Operating theatres</li>
+          <li>Intensive care support</li>
+          <li>Laboratory and pathology</li>
+          <li>Medical imaging</li>
+          <li>Pharmacy services</li>
+          <li>Inpatient nursing care</li>
+          <li>Physiotherapy and rehabilitation</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="resource-strip" aria-labelledby="patient-resources-title">
+      <h2 id="patient-resources-title">Related patient resources</h2>
+      <p>Use the connected pages below for information that may help patients and families navigate surgical care.</p>
+      <div class="source-links">
+        <a href="patient-information.html">Patient Information →</a>
+        <a href="appointments-referrals.html">Appointments &amp; Referrals →</a>
+        <a href="inpatient-services.html">Inpatient Services →</a>
+        <a href="anaesthesia-intensive-care.html">Anaesthesia &amp; Intensive Care →</a>
+        <a href="medical-imaging.html">Medical Imaging →</a>
+        <a href="pathology-services.html">Laboratory &amp; Pathology →</a>
+        <a href="patient-rights.html">Patient Rights →</a>
+        <a href="contact.html">Contact the Hospital →</a>
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top:24px;" aria-labelledby="verification-title">
+      <h2 id="verification-title">Information verification notice</h2>
+      <p>This is a professional website template. Specific surgical specialties, procedures, theatre availability, referral criteria, operating schedules, preparation instructions, fees, patient pathways and contact details must be supplied and approved by ANGAU Memorial Provincial Hospital management before publication.</p>
+      <p>The final website should not imply that every procedure listed here is currently available. Only verified services should be presented as operating services of the hospital.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h2>ANGAU Memorial Provincial Hospital</h2>
+          <p>Lae, Morobe Province<br>Papua New Guinea</p>
+          <p>A public-information website concept designed to help people navigate hospital information.</p>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="about.html">About the Hospital</a></li>
+            <li><a href="medical-services.html" aria-current="page">Medical Services</a></li>
+            <li><a href="patient-information.html">Patient Information</a></li>
+            <li><a href="health-education.html">Health Education</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Information</h3>
+          <ul>
+            <li><a href="news.html">News and Updates</a></li>
+            <li><a href="downloads.html">Forms and Documents</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <div>© <span id="year">2026</span> ANGAU Memorial Provincial Hospital website concept. All rights reserved by the respective owners of names and marks.</div>
+        <p class="disclaimer">This is an independently prepared website template, not a representation that the site is operated or officially endorsed by the hospital. Confirm ownership, official branding, contact details, service availability and all public notices with hospital management before publishing. Navigation links to other proposed pages will work once those pages are created.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var toggle = document.querySelector('.menu-toggle');
+      var links = document.getElementById('primary-links');
+      if (toggle && links) {
+        toggle.addEventListener('click', function () {
+          var open = links.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', String(open));
+        });
+      }
+      var year = document.getElementById('year');
+      if (year) year.textContent = String(new Date().getFullYear());
+    }());
+  </script>
+</body>
+</html>
